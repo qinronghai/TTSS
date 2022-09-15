@@ -35,6 +35,8 @@ let arr1: number[] = [1, 3, 4, 5]; // 每个元素必须是数字
 // 写法2：
 let arr2: Array<string> = ["1", "2"];
 
+let aa = [1, "1"]; // 类型推断自动推断为（number|string）
+
 //-元组Tuple
 let x: [string, number, ...any] = ["hello", 10]; // 类型顺序必须一致，否则报错
 x[3] = "world";
