@@ -132,6 +132,35 @@ interface Igood extends IGoodItem {
   tab: string;
 }
 
+// 两个接口interface名称一样会合并的
+interface A {
+  name: string;
+}
+interface A {
+  age: number;
+}
+let p: A = {
+  name: "xi",
+  age: 12,
+};
+
+interface B {
+  name: string;
+  age?: number; // ?可选式操纵符
+}
+let b: B = {
+  name: "xiao",
+};
+
+// 任意属性[propName: string]
+interface Person1 {
+  a: string;
+  [propName: string]: any;
+}
+let pp: Person1 = {
+  a: "a",
+  b: 1,
+};
 //-字面量类型
 let str3 = "hello TS"; // string 类型
 const str4 = "hello TS"; // hello TS 类型
@@ -173,6 +202,10 @@ let obj: any = {
 };
 obj.bar = 100;
 // !不推荐使用 any!这会让 TypeScript 变为 “AnyScript”(失去 TS 类型保护的优势)
+
+//-unknown类型
+let unknow: unknown = { a: 123 };
+// unknow.a // unknown 类型不能去调用属性和方法 这是any和unknown类型的区别
 
 // 解决“无法重新声明块范围变量”
 export {};
