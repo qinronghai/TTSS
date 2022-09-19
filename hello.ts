@@ -115,6 +115,17 @@ function slice(a?: number, b?: number) {
   console.log(111);
 }
 
+// 6. 函数重载，重载是方法名字相同，而参数不同，返回类型可以相同也可以不同。
+// 如果参数类型不同，则操作函数参数类型应蛇者为any
+// 参数数量不同=你可以讲不同的参数设置为可选
+// 不用为了对不同的参数类型或参数个数，而写多个函数。多个函数用同一个名字，
+// 但参数表，即参数的个数或(和)数据类型可以不同，调用的时候，虽然方法名字相同，但根据参数表可以自动调用对应的函数。
+function fN(params: number): void;
+function fN(params: string, params2: number): void;
+function fN(params: any, params2?: any): any {
+  return params + params2;
+}
+
 //-对象类型-单独使用
 const person: {
   name: string;
