@@ -32,10 +32,39 @@ let test1: NewType = 1;
 //-数组类型
 // 写法1：
 let arr1: number[] = [1, 3, 4, 5]; // 每个元素必须是数字
-// 写法2：
+// 写法2：通过泛型去定义数组
 let arr2: Array<string> = ["1", "2"];
 
 let aa = [1, "1"]; // 类型推断自动推断为（number|string）
+
+let arr3: any = [1, "a", true];
+// 二维数组
+let arr4: number[][] = [
+  [1, 2, 4],
+  [2, 3, 5],
+  [5, 6, 5],
+];
+// 函数中参数的数组arguments
+function Arr(...args: any): void {
+  console.log(arguments); // [Arguments] { '0': 4, '1': 5, '2': 6 }
+  // let arr: number[] = arguments; // !let arr: number[]类型“IArguments”缺少类型“number[]”的以下属性: pop, push, concat, join 及其他 27 项。
+  // 因为arguments是类数组，是通过IArguments这个内置接口定义的
+  let arr: IArguments = arguments;
+  console.log(arr);
+}
+Arr(4, 5, 6);
+// 长这样
+/* interface IArguments {
+  [index: number]: any;
+  length: number;
+  callee: Function;
+} */
+
+// 通过接口去定义数组
+interface ArrNumber {
+  [index: number]: string;
+}
+let arr: ArrNumber = ["1", "2", "3"];
 
 //-元组Tuple
 let x: [string, number, ...any] = ["hello", 10]; // 类型顺序必须一致，否则报错
