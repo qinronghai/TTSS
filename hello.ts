@@ -16,10 +16,26 @@ function add(num1: number, num2: number) {
   return num1 + num2;
 }
 
-//-联合类型
+//-联合类型 和 交叉类型
 // 定义一个变量可以是多种类型，比如可以是null或者number
 let timer1: number | null = null;
+// 交叉类型 :就是把两种类型都并起来了
+interface Pople {
+  name: string;
+  age: number;
+}
+interface Man {
+  sex: number;
+}
 
+const xiaohai = (man: Pople & Man): void => {
+  console.log(man);
+};
+xiaohai({
+  name: "小海",
+  age: 134,
+  sex: 1,
+});
 //-类型别名
 type s = string; // 定义
 const str1: s = "abc";
