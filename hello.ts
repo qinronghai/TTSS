@@ -235,7 +235,7 @@ let g2: Gender = "boy"; // 正确
 // 枚举的功能类似于字面量类型+联合类型组合的功能，在没有type式，大家用枚举比较多。
 // 1. 定义
 enum Dir {
-  up = 2, // 数值
+  up = 2, // 数值 
   down,
   left,
   right,
